@@ -22,11 +22,15 @@ describe('Testes da função getOpeningHours', () => {
   });
 
   it('Teste para verificas se ao receber horas inválidas lança um erro.', () => {
-    expect(() => (getOpeningHours('Monday', '80:00-AM'))).toThrow('The hour must be between 0 and 12');
+    const hourError = 'The hour must be between 0 and 12';
+    expect(() => (getOpeningHours('Monday', '18:00-AM'))).toThrow();
+    expect(() => (getOpeningHours('Monday', '18:00-AM'))).toThrow(new Error(hourError));
   });
 
   it('Teste para verificas se ao receber minutos inválidos lança um erro.', () => {
-    expect(() => getOpeningHours('Friday', '17:90-PM')).toThrow('The minutes must be between 0 and 59');
+    const minutesError = 'The minutes must be between 0 and 59';
+    expect(() => getOpeningHours('Friday', '10:90-PM')).toThrow();
+    expect(() => getOpeningHours('Friday', '10:90-PM')).toThrow(new Error(minutesError));
   });
 
   it('Teste para verificar se ao receber uma letra no horário retorna um erro', () => {
