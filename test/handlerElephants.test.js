@@ -7,9 +7,6 @@ describe('Testes da função HandlerElephants', () => {
   it('Teste para verificar se a função retorna Undefined se nao receber parametros', () => {
     expect(handlerElephants()).toBeUndefined();
   });
-  it('Teste para verificar se a função, recebendo o parametro names, retorna uma rray com o nome Jefferson', () => {
-    expect(handlerElephants('names')).includes('Jefferson').toBe(true);
-  });
   it('Teste para verificar se a função, recebendo o parametro averageAge retorna 10.5', () => {
     expect(handlerElephants('averageAge')).toEqual(10.5);
   });
